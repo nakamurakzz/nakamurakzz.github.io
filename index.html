@@ -409,10 +409,171 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-title { font-size: 3.5rem; }
-            .about-container { grid-template-columns: 1fr; }
-            header { padding: 20px; }
-            section { padding: 60px 5%; }
+            /* Header - Stack logo and nav vertically */
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+                text-align: center;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav li a {
+                font-size: 0.8rem;
+            }
+
+            /* Hero Section */
+            .hero {
+                padding: 0 5%;
+                padding-top: 100px;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-name {
+                font-size: 1.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+                padding: 5px 10px;
+            }
+
+            /* Section titles */
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .section-title::before {
+                width: 40px;
+                height: 40px;
+                top: -10px;
+                left: -10px;
+            }
+
+            /* Marquee */
+            .marquee-item {
+                font-size: 1rem;
+                margin-right: 30px;
+            }
+
+            /* About */
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text {
+                font-size: 1rem;
+            }
+
+            .about-code {
+                padding: 15px;
+                font-size: 0.7rem;
+                overflow-x: auto;
+            }
+
+            .about-code pre {
+                white-space: pre-wrap;
+                word-break: break-word;
+            }
+
+            /* Section padding */
+            section {
+                padding: 60px 5%;
+            }
+
+            /* Works */
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .work-title {
+                font-size: 1.2rem;
+            }
+
+            /* Skills */
+            .skill-tag {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
+
+            /* Contact */
+            .contact-btn {
+                font-size: 1.2rem;
+                padding: 15px 30px;
+            }
+
+            /* Background shapes - smaller on mobile */
+            .shape-circle {
+                width: 150px;
+                height: 150px;
+                left: -50px;
+            }
+
+            .shape-rect {
+                width: 100px;
+                height: 100px;
+                right: -30px;
+            }
+
+            .shape-tri {
+                border-left: 50px solid transparent;
+                border-right: 50px solid transparent;
+                border-bottom: 86px solid var(--accent-red);
+                right: 10%;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-name {
+                font-size: 1rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.75rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .about-code {
+                font-size: 0.6rem;
+            }
+
+            .marquee-item {
+                font-size: 0.8rem;
+            }
+
+            .contact-btn {
+                font-size: 1rem;
+                padding: 12px 24px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav li a {
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
