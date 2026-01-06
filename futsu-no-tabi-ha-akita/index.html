@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>普通の旅行は飽きたよな？ | FUTSU-NO-RYKO-HA-AKITA</title>
+  <title>普通の旅は飽きたよな？ | FUTSU-NO-TABI-HA-AKITA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=DotGothic16&family=M+PLUS+Rounded+1c:wght@400;700;900&display=swap" rel="stylesheet" />
@@ -371,12 +371,11 @@
   <div class="bg-ring"></div>
 
   <header class="hero">
-    <p class="hero-kicker">普通の旅行は飽きたよな？</p>
+    <p class="hero-kicker">普通の旅は飽きたよな？</p>
     <h1 class="hero-title">計画に従うな。偶然に殴られろ。</h1>
     <p class="hero-sub">誰も計画したことがない旅へ。偶然との出会いは保証しない。楽しむのはお前次第だ。</p>
     <div class="hero-actions">
-      <a class="cta" href="#roulette">偶然を引く</a>
-      <a class="ghost" href="#manifesto">宣言を読む</a>
+      <a class="cta" href="#roulette">偶然と出会う</a>
     </div>
   </header>
 
@@ -420,14 +419,16 @@
     <div class="roulette-wrap">
       <div>
         <h2 class="section-title">偶然に決めさせろ</h2>
-        <p class="section-lead">150の行き先と250の「してみたら？」から無理やり引いてやる。結果に文句言うな。文句は旅で晴らせ。</p>
-        <p class="meta-note">今のところ <strong id="city-count">150</strong>都市と <strong id="dare-count">250</strong>の煽りが待機中。</p>
+        <p class="section-lead">結果に文句言うな。文句は旅で晴らせ。</p>
+        <p class="meta-note">現在の弾数：<strong id="city-count">150</strong>都市 / <strong id="dare-count">500</strong>の挑発。</p>
       </div>
       <div class="roulette-card">
         <button id="spin">これがお前の旅だ</button>
         <div class="roulette-result" aria-live="polite">
           <div class="result-item" id="picked-city">---</div>
-          <div class="result-item" id="picked-dare">---</div>
+          <div class="result-item" id="picked-dare-1">---</div>
+          <div class="result-item" id="picked-dare-2">---</div>
+          <div class="result-item" id="picked-dare-3">---</div>
         </div>
       </div>
     </div>
@@ -439,7 +440,7 @@
   </section>
 
   <footer>
-    FUTSU-NO-RYKO-HA-AKITA / 普通の旅行は飽きたよな？
+    FUTSU-NO-TABI-HA-AKITA-YONA? / 普通の旅は飽きたよな？
   </footer>
 
   <script>
@@ -858,14 +859,31 @@
     cityCountEl.textContent = CITY_LIST.length.toString();
     dareCountEl.textContent = DARE_LIST.length.toString();
 
-    const pickRandom = (list) => list[Math.floor(Math.random() * list.length)];
     const spinButton = document.querySelector("#spin");
     const pickedCity = document.querySelector("#picked-city");
-    const pickedDare = document.querySelector("#picked-dare");
+    const pickedDares = [
+      document.querySelector("#picked-dare-1"),
+      document.querySelector("#picked-dare-2"),
+      document.querySelector("#picked-dare-3")
+    ];
+
+    const pickRandom = (list) => list[Math.floor(Math.random() * list.length)];
+    const pickRandomSet = (list, count) => {
+      const pool = [...list];
+      const picks = [];
+      while (picks.length < count && pool.length) {
+        const index = Math.floor(Math.random() * pool.length);
+        picks.push(pool.splice(index, 1)[0]);
+      }
+      return picks;
+    };
 
     const spin = () => {
       pickedCity.textContent = pickRandom(CITY_LIST);
-      pickedDare.textContent = pickRandom(DARE_LIST);
+      const dares = pickRandomSet(DARE_LIST, 3);
+      pickedDares.forEach((el, index) => {
+        el.textContent = dares[index] || "---";
+      });
     };
 
     spin();
