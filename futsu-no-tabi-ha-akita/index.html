@@ -879,7 +879,7 @@
     };
 
     const spin = () => {
-      pickedCity.textContent = pickRandom(CITY_LIST);
+      pickedCity.textContent = pickRandom(CITY_LIST) + " で...";
       const dares = pickRandomSet(DARE_LIST, 3);
       pickedDares.forEach((el, index) => {
         el.textContent = dares[index] || "---";
