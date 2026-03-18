@@ -16,9 +16,9 @@ jobs:
       - name: 📂 Sync files via SFTP
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.SSH_SERVER }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
+          host: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           port: 2222
           source: "./*"
           target: "/tech-ramukana.jp/"
