@@ -19,7 +19,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: / # ロリポップの公開フォルダのパスを指定。ルートの場合は /
+          server-dir: /tech-ramukana.jp # ロリポップの公開フォルダのパスを指定。ルートの場合は /
           # local-dir: ./dist/ # もしビルド成果物をアップする場合は指定します
           protocol: ftps # ロリポップはFTPS(FTP over SSL/TLS)に対応しているためftpsを推奨
           exclude: |
